@@ -1,16 +1,21 @@
 import { useState } from "react";
 //REALIZAMOS VARIACIONES
-const PostForm = ({ onSubmit }) => {
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
+const PostForm = ({ onSubmit, post, onCancel }) => {
+  const [title, setTitle] = useState(post ? post.title : "");
+  const [body, setBody] = useState(post ? post.body : "");
   //El preventDefault para que no realice el submit, guardamos en una constante el título y el body
   // Se actualiza el estado directamente por el OnChange y lo muestra
   const handleSubmit = (e) => {
     e.preventDefault();
     const post = { title, body };
     onSubmit(post);
+    setBody("");
+    setTitle("");
   };
-
+  const handleCancel = (e) => {
+    e.preventDefault();
+    onCancel();
+  };
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor='title'>Título</label>
@@ -26,7 +31,8 @@ const PostForm = ({ onSubmit }) => {
         value={body}
         onChange={(e) => setBody(e.target.value)}
       ></textarea>
-      <button type='submit'>Crear</button>
+      <button type='submit'>{post ? "Guardar" : "Crear"}</button>
+      {post && <button onClick={handleCancel}>Cancelar</button>}
     </form>
   );
 };
