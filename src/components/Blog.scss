@@ -1,85 +1,28 @@
+//Estilos comúnes
+$primary-color: #4285f4;
+$secondary-color: #fbbc05;
+$background-color: #f2e9ea;
+$font-family: "Quicksand", sans-serif;
+//Estilo del título Blog
 .blog {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.blog__section {
-  margin: 2rem 0;
-}
-
-.blog__title {
   font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+  color: $primary-color;
+}
+//Estilo del título Crea tu post
+.crea {
+  font-size: 1.5rem;
+  color: $secondary-color;
 }
 
-.blog__list {
+.post {
   list-style: none;
   padding: 0;
-  margin: 0;
-}
 
-.blog__post {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  background-color: #f7f7f7;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.blog__post-title {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-
-.blog__post-body {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-.blog__post-delete {
-  margin-top: 0.5rem;
-  font-size: 1rem;
-  color: red;
-  cursor: pointer;
-}
-
-.blog__form {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  background-color: #f7f7f7;
-  padding: 1rem;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.blog__form-label {
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-}
-
-.blog__form-input {
-  width: 100%;
-  font-size: 1rem;
-  padding: 0.5rem;
-  margin-bottom: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
-
-.blog__form-button {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  background-color: #0077cc;
-  color: #fff;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
+  &__item {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 1rem;
+    padding: 1rem;
+  }
 }

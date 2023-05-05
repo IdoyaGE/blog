@@ -1,0 +1,66 @@
+$font-family: "Quicksand", sans-serif;
+$light-border: 1px solid;
+
+$light: #f3f3f3;
+$dark: #4285f4;
+$border-radius: 5px;
+//Estilo del formulario
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem 0;
+  border: 1px solid $light-border;
+  background-color: lighten ($light, 10);
+  background-color: $light;
+  border-radius: $border-radius;
+  & textarea {
+    height: 200px;
+  }
+  body.dark & {
+    background-color: darken($dark, 10);
+    transition: 1s;
+    &:hover {
+      background-color: blue;
+      border-radius: 15px;
+    }
+  }
+}
+//Estilo de los labels Titulo y Contenido
+label {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+//Estilo del cuadro del input (Título) y textarea (Contenido
+input,
+textarea {
+  width: 50%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  resize: none;
+}
+.textarea {
+  height: 10rem;
+}
+
+//Estilo del botón de crear
+
+.buttonsubmit {
+  background-color: #2ecc71;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.buttonsubmit:hover {
+  background-color: #4285f4;
+}

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import PostForm from "./PostForm";
-
+import img1 from "./img/cocinazul.jpg";
 //CREAMOS LOS POST
 
 const Post = ({ post, onDelete, onEdit }) => {
@@ -23,11 +23,16 @@ const Post = ({ post, onDelete, onEdit }) => {
       onCancel={() => setEditing(false)}
     ></PostForm>
   ) : (
-    <article>
-      <h2>{post.title}</h2>
-      <p>{post.body}</p>
-      <button onClick={() => setEditing(true)}>Editar</button>
-      <button onClick={handleDelete}>Borrar</button>
+    <article className='postEdited'>
+      <img src={img1} alt='Cocina Azul' width='750px' height='750px' />
+      <h2 className='title'>{post.title}</h2>
+      <p className='body'>{post.body}</p>
+      <button className='buttonEditar' onClick={() => setEditing(true)}>
+        Editar
+      </button>
+      <button className='buttonDelete' onClick={handleDelete}>
+        Borrar
+      </button>
     </article>
   );
 };

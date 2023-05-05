@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./PostForm.scss";
 //REALIZAMOS VARIACIONES
 const PostForm = ({ onSubmit, post, onCancel }) => {
   const [title, setTitle] = useState(post ? post.title : "");
@@ -7,6 +8,8 @@ const PostForm = ({ onSubmit, post, onCancel }) => {
   // Se actualiza el estado directamente por el OnChange y lo muestra
   const handleSubmit = (e) => {
     e.preventDefault();
+    //para que no peudas crear un blog sin contenido
+    if (title.trim() === "" || body.trim() === "") return;
     const post = { title, body };
     onSubmit(post);
     setBody("");
@@ -18,21 +21,32 @@ const PostForm = ({ onSubmit, post, onCancel }) => {
   };
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor='title'>Título</label>
+      <label className='titulo' htmlFor='title'>
+        Título
+      </label>
       <input
         type='text'
         id='title'
         value={title}
         onChange={(e) => setTitle(e.target.value)}
       />
-      <label htmlFor='body'>Contenido</label>
+      <label className='contenido' htmlFor='body'>
+        Contenido
+      </label>
       <textarea
+        className='textarea'
         id='body'
         value={body}
         onChange={(e) => setBody(e.target.value)}
       ></textarea>
-      <button type='submit'>{post ? "Guardar" : "Crear"}</button>
-      {post && <button onClick={handleCancel}>Cancelar</button>}
+      <button className='buttonsubmit' type='submit'>
+        {post ? "Guardar" : "Crear"}
+      </button>
+      {post && (
+        <button className='buttoncancel' onClick={handleCancel}>
+          Cancelar
+        </button>
+      )}
     </form>
   );
 };
